@@ -24,5 +24,18 @@ module.exports = {
             callback(false);
         }
     });
+},
+addproduct: function(user, callback){
+    var sql = "INSERT INTO `product`( `name`, `quantity`, `price`) VALUES (?,?,?)";
+
+    db.execute(sql, [user.name,user.quantity,user.price], function(status){
+        
+        if(status){
+            callback(true);
+        }else{
+            callback(false);
+        }
+    });
 }
+
 }

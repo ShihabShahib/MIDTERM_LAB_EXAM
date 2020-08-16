@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Aug 16, 2020 at 07:00 PM
+-- Generation Time: Aug 16, 2020 at 07:29 PM
 -- Server version: 10.4.11-MariaDB
 -- PHP Version: 7.2.31
 
@@ -78,6 +78,13 @@ CREATE TABLE `product` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
+-- Dumping data for table `product`
+--
+
+INSERT INTO `product` (`id`, `name`, `quantity`, `price`) VALUES
+(1, 'mango', 1, 12);
+
+--
 -- Indexes for dumped tables
 --
 
@@ -91,6 +98,12 @@ ALTER TABLE `employee`
 -- Indexes for table `login`
 --
 ALTER TABLE `login`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `product`
+--
+ALTER TABLE `product`
   ADD PRIMARY KEY (`id`);
 
 --
@@ -108,6 +121,12 @@ ALTER TABLE `employee`
 --
 ALTER TABLE `login`
   MODIFY `id` int(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+
+--
+-- AUTO_INCREMENT for table `product`
+--
+ALTER TABLE `product`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
