@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Aug 16, 2020 at 06:47 PM
+-- Generation Time: Aug 16, 2020 at 07:00 PM
 -- Server version: 10.4.11-MariaDB
 -- PHP Version: 7.2.31
 
@@ -41,8 +41,7 @@ CREATE TABLE `employee` (
 --
 
 INSERT INTO `employee` (`id`, `name`, `phone`, `username`, `password`, `type`) VALUES
-(1, 'opuvai', '12345678901', 'opuvai@gmail.com', 'opuvai-902', 2),
-(2, 'sakibkhan', '12345678901', 'sakibkhan@gmail.com', 'sakibkhan-902', 2);
+(1, 'opuvai', '12345678901', 'opuvai@gmail.com', 'opuvai-902', 2);
 
 -- --------------------------------------------------------
 
@@ -62,7 +61,8 @@ CREATE TABLE `login` (
 --
 
 INSERT INTO `login` (`id`, `username`, `password`, `type`) VALUES
-(1, 'nobita@gmail.com', 'nobita-902', 1);
+(1, 'nobita@gmail.com', 'nobita-902', 1),
+(2, 'opuvai@gmail.com', 'opuvai-902', 2);
 
 -- --------------------------------------------------------
 
@@ -107,7 +107,7 @@ ALTER TABLE `employee`
 -- AUTO_INCREMENT for table `login`
 --
 ALTER TABLE `login`
-  MODIFY `id` int(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
