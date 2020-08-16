@@ -72,6 +72,52 @@ deleteemp: function(user, callback){
             callback(false);
         }
 })
+},
+getproduct: function(user, callback){
+    var sql = "select * from product";
+    db.getResults(sql, user, function(result){
+
+        if(result.length > 0 ){
+            callback(result);
+        }else{
+            callback([]);
+        }
+    })
+},
+updateproduct: function(user, callback){
+    var sql = "UPDATE `product` SET `name`=?,`quantity`=?,`price`=? WHERE `id`=?";
+
+    db.execute(sql, [user.name,user.quantity,user.price,user.id], function(status){
+        
+        if(status){
+
+            callback(true);
+        }else{
+            callback(false);
+        }
+    });
+},
+deleteproduct: function(user, callback){
+    var sql = "DELETE from product WHERE id=?";
+    db.execute(sql,[user], function(status){
+
+        if(status){
+            callback(true);
+        }else{
+            callback(false);
+        }
+})
+},
+productlistforupdate:  function(user, callback){
+    var sql = "select * from product WHERE id=?";
+    db.execute(sql,[user], function(status){
+
+        if(status){
+            callback(true);
+        }else{
+            callback(false);
+        }
+})
 }
 
 }

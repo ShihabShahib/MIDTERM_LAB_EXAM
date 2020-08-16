@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Update Product</title>   
+</head>
+<body>
+    <% if (product) { 
+        for(var i=0; i < product.length; i++){ %>
+    <form method="post" action="/employee/update/<%= product[i].id %>">
+    <fieldset>
+        
+				<table>
+
+					<tr>
+						<td>Name</td>
+						<td><input type="text" name="name" value="<%= product[i].name %>"></td>
+                    </tr>
+                    <tr>
+						<td>Quantity</td>
+						<td><input type="text" name="quantity" value="<%= product[i].quantity %>"></td>
+                    </tr>
+                    <tr>
+						<td>Price</td>
+						<td><input type="text" name="price" value="<%= product[i].price %>"></td>
+                    </tr>
+					<tr>
+						<td><input type="submit" name="submit" value="Submit"></td>
+					</tr>
+				</table>
+    </fieldset>
+</form>
+<% }} %>
+</body>
+</html>

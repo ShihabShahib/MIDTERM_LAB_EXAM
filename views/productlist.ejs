@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product List</title>
+</head>
+<body>
+    <form method="post">
+        <fieldset>
+            <legend>Product List</legend>
+            <table border="1">
+                <tr>
+                    <td><label for="">Product ID</label></td>
+                    <td><label for="">Product Name</label></td>
+                    <td><label for="">Product Quantity</label></td>
+                    <td><label for="">Product Price</label></td>
+                 
+                   <td><label for="">Action</label></td>
+                </tr>
+                <% if (product){
+                    for(var i=0; i < product.length; i++){ %>
+                <tr>
+                    <td><%= product[i].id %></td>
+                    <td><%= product[i].name %></td>
+                    <td><%= product[i].quantity %></td>
+                    <td><%= product[i].price %></td>
+                   
+                   <td>
+                        <a href="/employee/update/<%= product[i].id %>">Update</a> &nbsp;
+                        <a href="/employee/delete/<%= product[i].id %>" onclick=" return confirm('are you sure to delete')">Delete</a>
+                    </td>
+                </tr>
+                <% }%>
+                <% }%>
+            </table>
+        </fieldset>
+    </form>
+</body>
+</html>
