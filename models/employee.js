@@ -61,6 +61,17 @@ update: function(user, callback){
             callback(false);
         }
     });
+},
+deleteemp: function(user, callback){
+    var sql = "DELETE from employee WHERE id=?";
+    db.execute(sql,[user], function(status){
+
+        if(status){
+            callback(true);
+        }else{
+            callback(false);
+        }
+})
 }
 
 }

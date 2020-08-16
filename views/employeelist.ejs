@@ -28,7 +28,7 @@
                     <td><%= employee[i].password %></td>
                    <td>
                         <a href="/admin/update/<%= employee[i].id %>">Update</a> &nbsp;
-                      <!--  <a href="/admin/delete/<%= employee[i].employeeid %>" onclick=" return confirm('are you sure to delete')">Delete</a>-->
+                        <a href="/admin/delete/<%= employee[i].id %>" onclick=" return confirm('are you sure to delete')">Delete</a>
                     </td>
                 </tr>
                 <% }%>

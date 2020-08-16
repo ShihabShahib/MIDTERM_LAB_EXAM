@@ -93,5 +93,15 @@ router.post('/update/(:id)',[
             }
         });
 });
+router.get('/delete/(:id)',function(req,res){
+	
+	if(req.session.username != null){
+		employeelist.deleteemp(req.params.id,function(status){
+		    res.render('admin');
+		})
+	}else{
+			res.redirect('admin/admin');
+	}
+});
 
 module.exports = router;
