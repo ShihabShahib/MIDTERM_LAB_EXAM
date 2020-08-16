@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Employee List</title>
+</head>
+<body>
+    <form method="post">
+        <fieldset>
+            <legend>Employee List</legend>
+            <table border="1">
+                <tr>
+                    <td><label for="">Employee ID</label></td>
+                    <td><label for="">Employee Name</label></td>
+                    <td><label for="">Employee Phone no.</label></td>
+                    <td><label for="">Employee Username</label></td>
+                    <td><label for="">Employee Password</label></td>
+                   <!-- <td><label for="">Action</label></td>-->
+                </tr>
+                <% if (employee){
+                    for(var i=0; i < employee.length; i++){ %>
+                <tr>
+                    <td><%= employee[i].id %></td>
+                    <td><%= employee[i].name %></td>
+                    <td><%= employee[i].phone %></td>
+                    <td><%= employee[i].username %></td>
+                    <td><%= employee[i].password %></td>
+                   <!-- <td>
+                        <a href="/admin/update/<%= employee[i].employeeid %>">Update</a> &nbsp;
+                        <a href="/admin/delete/<%= employee[i].employeeid %>" onclick=" return confirm('are you sure to delete')">Delete</a>
+                    </td>-->
+                </tr>
+                <% }%>
+                <% }%>
+            </table>
+        </fieldset>
+    </form>
+</body>
+</html>

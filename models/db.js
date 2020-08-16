@@ -51,5 +51,38 @@ module.exports = {
 				console.log('end connection');
 			});
 		});
-    }
+    },
+    execute: function(sql, params, callback){
+
+		if(params == ''){
+			getConnection(function(connection){
+			connection.query(sql, function(err, status){
+				if(err){
+					callback(status);
+				}else{
+					callback(status);
+				}
+			});
+
+			connection.end(function(err){
+					console.log('end connection');
+				});
+			});
+		}else{
+			getConnection(function(connection){
+			connection.query(sql, params, function(err, status){
+				if(err){
+					callback(status);
+				}else{
+					callback(status);
+				}
+			});
+
+			connection.end(function(err){
+					console.log('end connection');
+				});
+			});
+		}
+
+	}
 };
