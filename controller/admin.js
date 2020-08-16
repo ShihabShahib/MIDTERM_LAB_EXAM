@@ -20,5 +20,9 @@ router.get('/emplist', function(req, res){
 			res.redirect('admin/admin');
 	}
 });
+router.get('/addemployee',function(req,res){
+    res.render('addemployee');
+});
+
 
 module.exports = router;
