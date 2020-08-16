@@ -23,6 +23,32 @@ router.get('/emplist', function(req, res){
 router.get('/addemployee',function(req,res){
     res.render('addemployee');
 });
+router.post('/addemployee',[
+	body('name').notEmpty(), 
+	body('phone').notEmpty().isDecimal().isLength({ min: 11 }).isLength({ max: 11 }),  
+	// username can not be empty
+	body('username').notEmpty().isLength({ min: 8 }),
+	// password should be at least 8 chars long
+	body('password').notEmpty().isLength({ min: 8 }) 
+  ], function(req, res){
+	const errors = validationResult(req);
+	if (!errors.isEmpty()) {
+	  return res.status(400).json({ errors: errors.array() });
+	}
+    var user = {
+		name: req.body.name,
+		phone: req.body.phone,
+		username: req.body.username,
+		password: req.body.password,
+    };
+        employeelist.addemployee(user, function(status){
 
+            if(status){
+                res.render('admin');
+            }else{
+                res.send('not working');
+            }
+        });
+});
 
 module.exports = router;

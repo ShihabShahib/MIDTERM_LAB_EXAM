@@ -11,5 +11,18 @@ module.exports = {
 				callback([]);
 			}
 		})
-	}
+	},
+
+    addemployee: function(user, callback){
+    var sql = "INSERT INTO `employee`( `name`, `phone`, `username`, `password`, `type`) VALUES (?,?,?,?,'2')";
+
+    db.execute(sql, [user.name,user.phone,user.username,user.password,user.type], function(status){
+        
+        if(status){
+            callback(true);
+        }else{
+            callback(false);
+        }
+    });
+}
 }
