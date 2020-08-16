@@ -16,7 +16,7 @@
                     <td><label for="">Employee Phone no.</label></td>
                     <td><label for="">Employee Username</label></td>
                     <td><label for="">Employee Password</label></td>
-                   <!-- <td><label for="">Action</label></td>-->
+                   <td><label for="">Action</label></td>
                 </tr>
                 <% if (employee){
                     for(var i=0; i < employee.length; i++){ %>
@@ -26,10 +26,10 @@
                     <td><%= employee[i].phone %></td>
                     <td><%= employee[i].username %></td>
                     <td><%= employee[i].password %></td>
-                   <!-- <td>
-                        <a href="/admin/update/<%= employee[i].employeeid %>">Update</a> &nbsp;
-                        <a href="/admin/delete/<%= employee[i].employeeid %>" onclick=" return confirm('are you sure to delete')">Delete</a>
-                    </td>-->
+                   <td>
+                        <a href="/admin/update/<%= employee[i].id %>">Update</a> &nbsp;
+                      <!--  <a href="/admin/delete/<%= employee[i].employeeid %>" onclick=" return confirm('are you sure to delete')">Delete</a>-->
+                    </td>
                 </tr>
                 <% }%>
                 <% }%>

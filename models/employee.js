@@ -25,12 +25,37 @@ module.exports = {
         }
     });
 },
+getemp: function(user, callback){
+    var sql = "select * from employee WHERE id=?";
+    db.getResults(sql, user, function(result){
+
+        if(result.length > 0 ){
+            callback(result);
+        }else{
+            callback([]);
+        }
+    })
+},
 addproduct: function(user, callback){
     var sql = "INSERT INTO `product`( `name`, `quantity`, `price`) VALUES (?,?,?)";
 
     db.execute(sql, [user.name,user.quantity,user.price], function(status){
         
         if(status){
+            callback(true);
+        }else{
+            callback(false);
+        }
+    });
+},
+
+update: function(user, callback){
+    var sql = "UPDATE `employee` SET `username`=?,`password`=?,`phone`=?,`name`=? WHERE `id`=?";
+
+    db.execute(sql, [user.username,user.password,user.phone,user.name,user.id], function(status){
+        
+        if(status){
+
             callback(true);
         }else{
             callback(false);
