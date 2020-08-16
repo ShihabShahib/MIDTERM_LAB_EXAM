@@ -110,12 +110,11 @@ deleteproduct: function(user, callback){
 },
 productlistforupdate:  function(user, callback){
     var sql = "select * from product WHERE id=?";
-    db.execute(sql,[user], function(status){
-
-        if(status){
-            callback(true);
+    db.getResults(sql,[user], function(result){
+        if(result.length > 0 ){
+            callback(result);
         }else{
-            callback(false);
+            callback([]);
         }
 })
 }
